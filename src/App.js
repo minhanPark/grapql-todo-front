@@ -1,20 +1,22 @@
 import React from "react";
-import { GlobalStyle } from "./style/Common";
-import styled from "styled-components";
+import { GlobalStyle, theme, darkTheme } from "./style/Common";
+import styled, { ThemeProvider } from "styled-components";
 
 const Title = styled.h1`
   font-size: 60px;
   color: red;
 `;
 
+const Container = styled.div``;
+
 function App() {
   return (
-    <React.Fragment>
+    <ThemeProvider theme={darkTheme}>
       <GlobalStyle />
-      <div className="App">
+      <Container>
         <Title>sdsdsdsdsdsd</Title>
-      </div>
-    </React.Fragment>
+      </Container>
+    </ThemeProvider>
   );
 }
 
