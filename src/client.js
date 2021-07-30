@@ -1,14 +1,14 @@
 import { ApolloClient, InMemoryCache, makeVar } from "@apollo/client";
 
-const isDarkModeVar = makeVar(localStorage.getItem("isDarkMode"));
+const isDarkModeVar = makeVar(!!localStorage.getItem("isDarkMode"));
 
 const toggleDarkMode = () => {
-  const isDarkMode = isDarkModeVar();
+  const isDarkMode = !!localStorage.getItem("isDarkMode");
   if (isDarkMode) {
     localStorage.removeItem("isDarkMode");
     isDarkModeVar(false);
   } else {
-    localStorage.setItem("isDarkMode");
+    localStorage.setItem("isDarkMode", "true");
     isDarkModeVar(true);
   }
 };
